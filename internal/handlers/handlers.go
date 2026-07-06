@@ -24,7 +24,7 @@ func UploadHandler(writer http.ResponseWriter, request *http.Request) {
 	file, header, err := request.FormFile("myFile")
 	if err != nil {
 		log.Printf("Error retrieving file: %v", err)
-		http.Error(writer, "Error retrieving file", http.StatusInternalServerError)
+		http.Error(writer, "Error retrieving file", http.StatusBadRequest)
 		return
 	}
 	defer file.Close()
